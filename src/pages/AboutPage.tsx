@@ -1,9 +1,11 @@
-import { motion } from "framer-motion";
+
+import { motion, HTMLMotionProps } from "framer-motion";
 import SocialLinks from "@/components/SocialLinks";
 import WaitlistForm from "@/components/WaitlistForm";
 import { Sparkles } from "lucide-react";
 
-const Section = ({ children, ...rest }: React.HTMLAttributes<HTMLDivElement>) => {
+// Fixed the type definition to use HTMLMotionProps for the section element
+const Section = ({ children, ...rest }: HTMLMotionProps<"section">) => {
   return (
     <motion.section
       initial={{ opacity: 0, y: 40 }}
