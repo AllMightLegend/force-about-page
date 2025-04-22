@@ -1,4 +1,3 @@
-
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import AnimatedText from "@/components/AnimatedText";
@@ -11,6 +10,10 @@ import ParallaxSection from "@/components/ParallaxSection";
 import CallToAction from "@/components/CallToAction";
 import Timeline from "@/components/Timeline";
 import { BookOpen, Brain, Users, Compass, Edit, Layers, Heart, Sparkles, Star, Zap } from "lucide-react";
+import HeroSection from "@/components/HeroSection";
+import VisionSection from "@/components/VisionSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import EcosystemSection from "@/components/EcosystemSection";
 
 const Index = () => {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -25,163 +28,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 overflow-x-hidden">
-      {/* Hero Section */}
-      <section 
-        ref={targetRef}
-        className="relative h-screen flex items-center overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24"
-      >
-        <motion.div 
-          className="container mx-auto px-4 relative z-10"
-          style={{ opacity, scale, y }}
-        >
-          <div className="text-center max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-block mb-8 p-3 backdrop-blur-md bg-secondary/80 dark:bg-secondary/20 rounded-2xl"
-            >
-              <span className="text-primary font-medium">Elevate your consciousness</span>
-            </motion.div>
-            
-            <div className="mb-12">
-              <AnimatedText 
-                text="About Force" 
-                className="text-6xl md:text-8xl font-bold mb-8 text-balance tracking-tight" 
-                highlight
-              />
-              <AnimatedText 
-                text="Reimagining personal growth through AI-driven analysis of your thoughts and experiences."
-                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed text-balance"
-                delay={3}
-              />
-            </div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="flex flex-wrap justify-center gap-4 mt-12"
-            >
-              <motion.a 
-                href="#vision" 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative inline-flex group"
-              >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-200"></div>
-                <button className="relative bg-white dark:bg-gray-900 text-primary px-8 py-4 rounded-lg">
-                  Our Vision
-                </button>
-              </motion.a>
-              
-              <motion.a 
-                href="#approach" 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-primary border border-purple-200 dark:border-purple-800 dark:bg-transparent dark:text-white px-8 py-4 rounded-lg hover:shadow-xl hover:shadow-purple-600/10 transition duration-300"
-              >
-                Our Approach
-              </motion.a>
-            </motion.div>
-          </div>
-        </motion.div>
-        
-        {/* Interactive Background Elements */}
-        <div className="absolute inset-0 overflow-hidden z-0">
-          {Array.from({ length: 20 }).map((_, index) => (
-            <motion.div 
-              key={index}
-              initial={{ 
-                opacity: 0,
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                scale: Math.random() * 0.5 + 0.5
-              }}
-              animate={{ 
-                opacity: Math.random() * 0.3 + 0.1,
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                scale: Math.random() * 0.5 + 0.3
-              }}
-              transition={{ 
-                duration: Math.random() * 20 + 10,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
-              className="absolute w-32 h-32 md:w-64 md:h-64 rounded-full bg-gradient-to-r from-purple-300/20 to-indigo-300/20 dark:from-purple-900/20 dark:to-indigo-900/20 mix-blend-multiply dark:mix-blend-lighten blur-3xl"
-            />
-          ))}
-        </div>
-        
-        {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <motion.div 
-            className="w-8 h-12 border-2 border-purple-500 rounded-full flex justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
-          >
-            <motion.div 
-              className="w-1.5 h-2.5 bg-purple-500 rounded-full mt-2"
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Vision Section */}
-      <section id="vision" className="py-24 md:py-32 relative">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Our Vision"
-            subtitle="We're reimagining how technology can enhance human consciousness."
-            useGradient={true}
-          />
-          
-          <div className="max-w-3xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="prose prose-lg max-w-none text-center"
-            >
-              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                Force is reimagining personal growth through powerful AI-driven analysis of multi-modal content. 
-                We're building a comprehensive ecosystem that transforms how you capture, organize, and 
-                leverage your thoughts to enhance consciousness, creativity, and personal development.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-        
-        {/* Floating elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <motion.div 
-            className="absolute top-1/4 right-[15%] w-24 h-24 rounded-full bg-purple-300/30 dark:bg-purple-700/30 blur-2xl"
-            animate={{ 
-              y: [0, 15, 0],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-          <motion.div 
-            className="absolute bottom-1/4 left-[10%] w-32 h-32 rounded-full bg-indigo-300/20 dark:bg-indigo-700/20 blur-xl"
-            animate={{ 
-              y: [0, -20, 0],
-              scale: [1, 0.9, 1]
-            }}
-            transition={{ duration: 10, repeat: Infinity }}
-          />
-        </div>
-      </section>
-
+      <HeroSection />
+      <VisionSection />
       {/* Problem Section */}
       <ParallaxSection className="py-24 md:py-32" bgColor="bg-gradient-secondary dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-950">
         <div className="container mx-auto px-4">
@@ -214,7 +62,6 @@ const Index = () => {
           </div>
         </div>
       </ParallaxSection>
-
       {/* Approach Section */}
       <section id="approach" className="py-24 md:py-32 relative">
         <div className="container mx-auto px-4">
@@ -256,119 +103,8 @@ const Index = () => {
         <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-gradient-to-b from-purple-100/30 to-transparent dark:from-purple-900/10 dark:to-transparent rounded-bl-full blur-3xl -z-10" />
         <div className="absolute bottom-0 left-0 w-1/4 h-1/3 bg-gradient-to-t from-indigo-100/30 to-transparent dark:from-indigo-900/10 dark:to-transparent rounded-tr-full blur-3xl -z-10" />
       </section>
-
-      {/* Ecosystem Section */}
-      <ParallaxSection bgColor="bg-gradient-secondary dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-950" className="py-24 md:py-32">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="The Force Ecosystem"
-            subtitle="A comprehensive array of digital and physical offerings."
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-            <EcosystemCard
-              title="Force Core Platform"
-              description="Our flagship journaling and consciousness platform with AI-powered insights."
-              icon={<Brain />}
-              index={0}
-              color="purple"
-            />
-            <EcosystemCard
-              title="Force Apothecary"
-              description="Physical wellness products including body balms, aromatherapy sprays, and oils that complement your digital journey."
-              icon={<Heart />}
-              index={1}
-              color="pink"
-            />
-            <EcosystemCard
-              title="Force Experiences"
-              description="Curated in-person events connecting like-minded members in unique venues across global cities."
-              icon={<Users />}
-              index={2}
-              color="blue"
-            />
-            <EcosystemCard
-              title="Force Integrations"
-              description="Seamless connections with health and wellness devices to provide a comprehensive view of your physical and mental state."
-              icon={<Layers />}
-              index={3}
-              color="green"
-            />
-          </div>
-        </div>
-      </ParallaxSection>
-
-      {/* Benefits Section */}
-      <section className="py-24 md:py-32 relative">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="How Force Benefits You"
-            subtitle="Tailored solutions for various personal and professional needs."
-            useGradient={true}
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <BenefitCard
-              title="For Personal Growth Seekers"
-              description={[
-                "Understand your thought patterns to achieve higher consciousness",
-                "Identify mental tendencies that limit your potential",
-                "Track your progress toward greater self-awareness",
-                "Connect with like-minded individuals on similar journeys"
-              ]}
-              icon={<Brain />}
-              index={0}
-            />
-            <BenefitCard
-              title="For Knowledge Workers & Professionals"
-              description={[
-                "Organize complex ideas with intelligent structure",
-                "Surface valuable connections between disparate information",
-                "Track and optimize decision-making patterns",
-                "Capture and refine professional insights over time"
-              ]}
-              icon={<Sparkles />}
-              index={1}
-            />
-            <BenefitCard
-              title="For Creative Thinkers"
-              description={[
-                "Document creative processes and inspiration sources",
-                "Develop ideas through guided reflection and analysis",
-                "Discover unexpected connections that spark innovation",
-                "Build a searchable archive of creative concepts"
-              ]}
-              icon={<Star />}
-              index={2}
-            />
-          </div>
-        </div>
-        
-        {/* Floating particles */}
-        <div className="absolute inset-0 pointer-events-none -z-10">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <motion.div
-              key={`particle-${i}`}
-              className="absolute w-2 h-2 rounded-full bg-purple-400 dark:bg-purple-600"
-              initial={{ 
-                x: Math.random() * window.innerWidth, 
-                y: Math.random() * window.innerHeight,
-                opacity: 0.3 + Math.random() * 0.4
-              }}
-              animate={{ 
-                y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight],
-                opacity: [0.3 + Math.random() * 0.4, 0.1, 0.3 + Math.random() * 0.4] 
-              }}
-              transition={{ 
-                duration: 10 + Math.random() * 20, 
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
-            />
-          ))}
-        </div>
-      </section>
-
+      <EcosystemSection />
+      <BenefitsSection />
       {/* Story Section */}
       <ParallaxSection bgColor="bg-gradient-secondary dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-950" className="py-24 md:py-32">
         <div className="container mx-auto px-4">
