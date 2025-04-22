@@ -1,4 +1,3 @@
-
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -27,7 +26,7 @@ export default function WaitlistForm() {
       toast({
         title: "You're on the waitlist!",
         description: "We'll reach out as soon as access is available.",
-        variant: "default", // Changed from "success" to "default"
+        variant: "default",
       });
       reset();
       setLoading(false);
@@ -42,13 +41,13 @@ export default function WaitlistForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.1 }}
-      className="w-full max-w-md mx-auto glass-morphism px-8 py-10 rounded-2xl shadow-2xl border border-white/30 relative"
+      className="w-full max-w-lg mx-auto glass-morphism px-10 py-12 rounded-2xl shadow-2xl border border-white/30 relative mb-2"
       style={{
         background: "linear-gradient(135deg, rgba(155,135,245,0.18) 0%, rgba(255,255,255,0.15) 100%)",
         boxShadow: "0 8px 60px 0 rgba(155,135,245,0.19)",
       }}
     >
-      <label htmlFor="email" className="block text-lg font-semibold mb-2 text-gradient-primary">
+      <label htmlFor="email" className="block text-2xl font-semibold mb-5 text-gradient-primary">
         Join the Force Waitlist
       </label>
       <Input
@@ -58,7 +57,7 @@ export default function WaitlistForm() {
         placeholder="Your best email"
         {...register("email")}
         aria-invalid={!!formState.errors.email}
-        className="mb-3 bg-white/70 border-gray-300 focus:border-primary/70 shadow-none transition placeholder-gray-400"
+        className="mb-4 bg-white/70 border-gray-300 focus:border-primary/70 shadow-none transition placeholder-gray-400 text-lg"
         disabled={loading}
       />
       {formState.errors.email && (
@@ -70,7 +69,7 @@ export default function WaitlistForm() {
         <Button
           type="submit"
           disabled={loading}
-          className="w-full text-lg py-2 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-500 shadow-lg hover:shadow-2xl hover:-translate-y-[2px] transition-all"
+          className="w-full text-lg py-3 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-500 shadow-lg hover:shadow-2xl hover:-translate-y-[2px] transition-all"
         >
           {loading ? (
             <span className="inline-flex gap-2 items-center">
@@ -82,7 +81,7 @@ export default function WaitlistForm() {
           )}
         </Button>
       </motion.div>
-      <div className="pt-3 text-center text-xs text-gray-500 dark:text-gray-400">
+      <div className="pt-5 text-center text-base text-gray-500 dark:text-gray-400">
         Private beta launches <strong>May 2025</strong>. Global rollout in Q3 2025.
       </div>
     </motion.form>
