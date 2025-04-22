@@ -6,9 +6,20 @@ interface AnimatedTextProps {
   className?: string;
   once?: boolean;
   delay?: number;
+  highlight?: boolean;
+  highlightColor?: string;
+  highlightWords?: string[];
 }
 
-const AnimatedText = ({ text, className = "", once = false, delay = 0 }: AnimatedTextProps) => {
+const AnimatedText = ({ 
+  text, 
+  className = "", 
+  once = false, 
+  delay = 0,
+  highlight = false,
+  highlightColor = "bg-gradient-to-r from-purple-600 to-indigo-600",
+  highlightWords = []
+}: AnimatedTextProps) => {
   const words = text.split(" ");
   
   const container = {
@@ -49,15 +60,20 @@ const AnimatedText = ({ text, className = "", once = false, delay = 0 }: Animate
       viewport={{ once }}
       className={className}
     >
-      {words.map((word, index) => (
-        <motion.span
-          variants={child}
-          key={index}
-          className="inline-block mr-1"
-        >
-          {word}
-        </motion.span>
-      ))}
+      {words.map((word, index) => {
+        const shouldHighlight = highlight && 
+          (highlightWords.length === 0 || highlightWords.includes(word));
+        
+        return (
+          <motion.span
+            variants={child}
+            key={index}
+            className={`inline-block mr-1 ${shouldHighlight ? `${highlightColor} bg-clip-text text-transparent` : ""}`}
+          >
+            {word}
+          </motion.span>
+        );
+      })}
     </motion.div>
   );
 };

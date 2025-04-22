@@ -1,18 +1,21 @@
 
 import { motion } from "framer-motion";
+import GradientText from "./GradientText";
 
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
   className?: string;
   align?: "left" | "center" | "right";
+  useGradient?: boolean;
 }
 
 const SectionHeading = ({ 
   title, 
   subtitle, 
   className = "", 
-  align = "center" 
+  align = "center",
+  useGradient = false
 }: SectionHeadingProps) => {
   
   const alignClass = {
@@ -23,15 +26,25 @@ const SectionHeading = ({
   
   return (
     <div className={`mb-12 ${alignClass} ${className}`}>
-      <motion.h2 
+      <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="text-3xl md:text-4xl font-bold text-primary mb-2 tracking-tight"
       >
-        {title}
-      </motion.h2>
+        {useGradient ? (
+          <GradientText 
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 tracking-tight"
+            animate={true}
+          >
+            {title}
+          </GradientText>
+        ) : (
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2 tracking-tight">
+            {title}
+          </h2>
+        )}
+      </motion.div>
       
       {subtitle && (
         <motion.p 
@@ -39,7 +52,7 @@ const SectionHeading = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="text-lg text-neutral-600 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto"
         >
           {subtitle}
         </motion.p>
