@@ -1,21 +1,22 @@
-
 import { motion } from "framer-motion";
 import SocialLinks from "@/components/SocialLinks";
 import WaitlistForm from "@/components/WaitlistForm";
 import { Sparkles } from "lucide-react";
 
-const Section = ({ children, ...rest }: React.HTMLAttributes<HTMLDivElement>) => (
-  <motion.section
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.75 }}
-    className="relative px-5 max-w-4xl mx-auto mb-20"
-    {...rest}
-  >
-    {children}
-  </motion.section>
-);
+const Section = ({ children, ...rest }: React.HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.75 }}
+      className="relative px-5 max-w-4xl mx-auto mb-20"
+      {...rest}
+    >
+      {children}
+    </motion.section>
+  );
+};
 
 const AboutPage = () => (
   <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#f6f3ff] via-[#fdfcff] to-[#e7e0fd] dark:from-[#1a1f2c] dark:via-gray-900 dark:to-black text-gray-800 dark:text-gray-100">

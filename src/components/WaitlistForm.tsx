@@ -27,7 +27,7 @@ export default function WaitlistForm() {
       toast({
         title: "You're on the waitlist!",
         description: "We'll reach out as soon as access is available.",
-        variant: "success",
+        variant: "default", // Changed from "success" to "default"
       });
       reset();
       setLoading(false);
