@@ -27,8 +27,8 @@ const Index = () => {
   const y = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 overflow-x-hidden">
-      {/* Add About CTA as hero banner overlay */}
+    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 overflow-x-hidden">
+      {/* Enhanced floating CTA */}
       <div className="fixed bottom-6 right-6 z-30">
         <motion.a
           href="/about"
@@ -37,11 +37,10 @@ const Index = () => {
           transition={{ type: "spring", stiffness: 70, delay: 1.2 }}
           whileHover={{
             scale: 1.07,
-            boxShadow:
-              "0 4px 20px 0 rgba(153,97,255,0.19), 0 1.5px 25px 0 rgba(90,100,255,0.14)",
+            boxShadow: "0 4px 20px 0 rgba(153,97,255,0.19), 0 1.5px 25px 0 rgba(90,100,255,0.14)",
           }}
           whileTap={{ scale: 0.97 }}
-          className="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 shadow-xl text-white font-semibold px-9 py-4 rounded-full text-xl flex items-center gap-3 border-2 border-white/10 ring-1 ring-indigo-300/40 drop-shadow-md transition-all"
+          className="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 shadow-xl text-white font-semibold px-9 py-4 rounded-full text-xl flex items-center gap-3 border-2 border-white/10 ring-1 ring-indigo-300/40 drop-shadow-md transition-all hover:shadow-2xl hover:shadow-purple-500/20"
           style={{ filter: "drop-shadow(0 4px 18px #cabffd70)" }}
         >
           <span aria-label="About Force" className="flex items-center">
@@ -50,7 +49,7 @@ const Index = () => {
         </motion.a>
       </div>
       
-      {/* Add floating decorative elements */}
+      {/* Enhanced decorative elements */}
       <div className="fixed top-10 left-10 opacity-30 dark:opacity-40 pointer-events-none z-0">
         <motion.div
           animate={{ 
@@ -100,7 +99,7 @@ const Index = () => {
       <HeroSection />
       <VisionSection />
       
-      {/* Problem Section */}
+      {/* Enhanced Problem Section */}
       <ParallaxSection className="py-24 md:py-32" bgColor="bg-gradient-secondary dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-950">
         <div className="container mx-auto px-4">
           <SectionHeading
@@ -114,15 +113,15 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="prose prose-lg max-w-none bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl"
+              className="prose prose-lg max-w-none bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800"
             >
-              <p className="text-gray-600 dark:text-gray-300 text-center">
+              <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
                 In today's fast-paced world, our thoughts, ideas, and experiences are our most valuable 
                 assets—yet they often remain scattered, unorganized, and underutilized. Most people lack 
                 awareness of their own thought patterns and mental tendencies, preventing them from achieving 
                 higher consciousness and exercising true control over their minds and lives.
               </p>
-              <p className="text-gray-600 dark:text-gray-300 mt-6 text-center">
+              <p className="text-gray-600 dark:text-gray-300 mt-6 text-center leading-relaxed">
                 Force addresses this fundamental challenge by creating a seamless system that not only captures 
                 your thinking across multiple formats but also analyzes patterns, surfaces connections, and 
                 generates actionable insights that fuel your journey toward greater self-awareness and personal 
@@ -133,7 +132,7 @@ const Index = () => {
         </div>
       </ParallaxSection>
       
-      {/* Approach Section */}
+      {/* Enhanced Approach Section */}
       <section id="approach" className="py-24 md:py-32 relative">
         <div className="container mx-auto px-4">
           <SectionHeading
@@ -170,7 +169,7 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Decorative elements */}
+        {/* Enhanced decorative elements */}
         <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-gradient-to-b from-purple-100/30 to-transparent dark:from-purple-900/10 dark:to-transparent rounded-bl-full blur-3xl -z-10" />
         <div className="absolute bottom-0 left-0 w-1/4 h-1/3 bg-gradient-to-t from-indigo-100/30 to-transparent dark:from-indigo-900/10 dark:to-transparent rounded-tr-full blur-3xl -z-10" />
       </section>
@@ -178,7 +177,7 @@ const Index = () => {
       <EcosystemSection />
       <BenefitsSection />
       
-      {/* Story Section */}
+      {/* Enhanced Story Section */}
       <ParallaxSection bgColor="bg-gradient-secondary dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-950" className="py-24 md:py-32">
         <div className="container mx-auto px-4">
           <SectionHeading
@@ -192,15 +191,15 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="prose prose-lg max-w-none bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl"
+              className="prose prose-lg max-w-none bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800"
             >
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                 Force emerged from our founder's extensive research and personal journey. After five months 
                 of user interviews conducted in San Francisco (June-October 2024), she recognized a universal 
                 need: people seeking greater consciousness and control over their minds require tools to 
                 understand their thought patterns and observe themselves objectively.
               </p>
-              <p className="text-gray-600 dark:text-gray-300 mt-6">
+              <p className="text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
                 The founder assembled a team of two interns in November 2024, and together they've been 
                 engaged in rigorous R&D to create a platform that helps users analyze their patterns and 
                 track progress in their personal development journeys.
@@ -210,7 +209,7 @@ const Index = () => {
         </div>
       </ParallaxSection>
 
-      {/* Roadmap Section */}
+      {/* Enhanced Roadmap Section */}
       <section className="py-24 md:py-32 relative">
         <div className="container mx-auto px-4">
           <SectionHeading
@@ -247,18 +246,10 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Animated background gradients */}
-        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-          <motion.div
-            className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-purple-200/30 dark:bg-purple-900/30 blur-3xl"
-            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.2, 0.3] }}
-            transition={{ duration: 15, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute bottom-20 left-10 w-80 h-80 rounded-full bg-indigo-200/20 dark:bg-indigo-900/20 blur-3xl"
-            animate={{ scale: [1, 0.8, 1], opacity: [0.2, 0.3, 0.2] }}
-            transition={{ duration: 12, repeat: Infinity, repeatType: "reverse" }}
-          />
+        {/* Enhanced animated background gradients */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-purple-50/50 to-transparent dark:from-purple-900/10 dark:to-transparent" />
+          <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-indigo-50/50 to-transparent dark:from-indigo-900/10 dark:to-transparent" />
         </div>
       </section>
 
